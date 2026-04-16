@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+Devanagari:wght@300;400;600;700&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#0a0608;color:#f5ede0;font-family:'Josefin Sans',sans-serif;overflow-x:hidden}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(160deg,#1a0810 0%,#2d0f1a 30%,#1a0810 60%,#0d0608 100%)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(180,30,90,0.15) 0%,transparent 70%)}
+.hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,#c9933a 0,#c9933a 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.hero-content{position:relative;z-index:2;padding:2rem}
+.save-date{font-family:'Josefin Sans',sans-serif;font-weight:200;letter-spacing:0.4em;font-size:0.75rem;color:#c9933a;text-transform:uppercase;margin-bottom:1.5rem;opacity:0}
+.marathi-tagline{font-family:'Noto Serif Devanagari',serif;font-weight:300;font-size:1rem;color:rgba(201,147,58,0.8);letter-spacing:0.15em;margin-bottom:1rem;opacity:0}
+.names{font-family:'Great Vibes',cursive;font-size:clamp(3.5rem,10vw,7rem);color:#fff;line-height:1.1;opacity:0;text-shadow:0 0 60px rgba(180,30,90,0.4)}
+.ampersand-gold{color:#c9933a}
+.subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(0.9rem,2vw,1.1rem);font-style:italic;color:rgba(245,237,224,0.7);letter-spacing:0.1em;margin-top:1rem;opacity:0}
+.divider-gold{width:120px;height:1px;background:linear-gradient(to right,transparent,#c9933a,transparent);margin:1.5rem auto;opacity:0}
+
+/* COUNTDOWN */
+.countdown-wrap{display:flex;gap:clamp(1rem,3vw,2.5rem);justify-content:center;margin-top:2rem;opacity:0}
+.cd-box{text-align:center}
+.cd-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;line-height:1;display:block}
+.cd-label{font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.3em;color:#c9933a;text-transform:uppercase;display:block;margin-top:4px}
+.cd-sep{font-family:'Playfair Display',serif;font-size:2.5rem;color:rgba(201,147,58,0.4);align-self:flex-start;margin-top:8px}
+
+/* SCROLL CUE */
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.5}
+.scroll-cue span{font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:#c9933a}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,#c9933a,transparent);animation:scrollAnim 1.8s ease infinite}
+@keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* SECTION BASE */
+.section{padding:5rem 1.5rem;position:relative}
+.section-title{font-family:'Great Vibes',cursive;font-size:clamp(2.5rem,6vw,4rem);text-align:center;margin-bottom:0.5rem;color:#c9933a}
+.section-sub{font-family:'Noto Serif Devanagari',serif;font-size:0.9rem;letter-spacing:0.2em;text-align:center;color:rgba(245,237,224,0.5);margin-bottom:3rem}
+.section-line{width:80px;height:1px;background:linear-gradient(to right,transparent,#c9933a,transparent);margin:1rem auto 3rem}
+
+/* EVENTS */
+.events-bg{background:linear-gradient(180deg,#0a0608 0%,#120610 50%,#0a0608 100%)}
+.paithani-border{width:100%;height:8px;background:repeating-linear-gradient(90deg,#c9933a 0,#c9933a 8px,#8b1a3a 8px,#8b1a3a 16px,#c9933a 16px,#c9933a 20px,#f5ede0 20px,#f5ede0 24px,#8b1a3a 24px,#8b1a3a 32px);opacity:0.4;margin:2rem 0}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:800px;margin:0 auto}
+.event-card{border:1px solid;border-radius:2px;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.event-card::before{content:'';position:absolute;inset:0;opacity:0.05}
+.event-haldi{border-color:rgba(201,147,58,0.4);background:rgba(201,147,58,0.04)}
+.event-haldi::before{background:radial-gradient(circle at 50% 0%,#c9933a,transparent)}
+.event-wedding{border-color:rgba(139,26,58,0.5);background:rgba(139,26,58,0.06)}
+.event-wedding::before{background:radial-gradient(circle at 50% 0%,#8b1a3a,transparent)}
+.event-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.event-day{font-family:'Josefin Sans',sans-serif;font-weight:200;letter-spacing:0.4em;font-size:0.65rem;text-transform:uppercase;margin-bottom:0.5rem}
+.event-haldi .event-day{color:#c9933a}
+.event-wedding .event-day{color:#c9933a}
+.event-name-mr{font-family:'Noto Serif Devanagari',serif;font-size:1.4rem;font-weight:600;margin-bottom:0.25rem}
+.event-haldi .event-name-mr{color:#e8b450}
+.event-wedding .event-name-mr{color:#d4607a}
+.event-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:rgba(245,237,224,0.5);margin-bottom:1.5rem}
+.event-date{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1;color:#fff}
+.event-date-sub{font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.3em;color:rgba(245,237,224,0.4);text-transform:uppercase;margin-top:0.25rem}
+.event-detail{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(201,147,58,0.2);font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:rgba(245,237,224,0.6);font-style:italic}
+
+/* VENUE */
+.venue-bg{background:linear-gradient(180deg,#0a0608 0%,#0d0810 100%)}
+.venue-card{max-width:700px;margin:0 auto;border:1px solid rgba(201,147,58,0.25);padding:2.5rem;background:rgba(201,147,58,0.03)}
+.venue-name{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:#fff;margin-bottom:0.5rem;text-align:center}
+.venue-marathi{font-family:'Noto Serif Devanagari',serif;font-size:1rem;color:#c9933a;text-align:center;margin-bottom:1rem;opacity:0.8}
+.venue-addr{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:0.8rem;letter-spacing:0.15em;color:rgba(245,237,224,0.5);text-align:center;margin-bottom:2rem;line-height:2}
+.map-frame{width:100%;height:260px;border:none;filter:sepia(30%) saturate(80%) hue-rotate(290deg) brightness(0.85);border-radius:2px}
+.dir-btn{display:block;margin:1.5rem auto 0;background:transparent;border:1px solid #c9933a;color:#c9933a;font-family:'Josefin Sans',sans-serif;font-weight:300;letter-spacing:0.3em;font-size:0.7rem;text-transform:uppercase;padding:0.9rem 2.5rem;cursor:pointer;text-decoration:none;width:fit-content;transition:all 0.3s}
+.dir-btn:hover{background:#c9933a;color:#0a0608}
+
+/* FOOTER */
+.footer{padding:4rem 1.5rem;text-align:center;background:#060405;border-top:1px solid rgba(201,147,58,0.15)}
+.monogram{font-family:'Great Vibes',cursive;font-size:5rem;color:rgba(201,147,58,0.2);margin-bottom:1rem;display:block}
+.footer-msg-mr{font-family:'Noto Serif Devanagari',serif;font-size:1.1rem;color:rgba(245,237,224,0.7);line-height:1.9;margin-bottom:0.5rem}
+.footer-msg-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(245,237,224,0.4)}
+.footer-names{font-family:'Great Vibes',cursive;font-size:2rem;color:#c9933a;margin-top:2rem}
+
+/* MARIGOLD MOTIF */
+.marigold{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1rem 0}
+.marigold-line{flex:1;max-width:150px;height:1px;background:linear-gradient(to right,transparent,rgba(201,147,58,0.4))}
+.marigold-line.r{background:linear-gradient(to left,transparent,rgba(201,147,58,0.4))}
+.marigold-flower{width:20px;height:20px;position:relative;display:flex;align-items:center;justify-content:center}
+.m-petal{position:absolute;width:5px;height:10px;background:#c9933a;border-radius:50%;opacity:0.6}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.anim{opacity:0;transition:opacity 0.8s ease,transform 0.8s ease}
+.anim.visible{opacity:1!important;transform:translateY(0)!important}
+.event-card.anim{transform:translateY(40px)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <p class="save-date" id="sd">✦ Save the Date ✦</p>
+    <p class="marathi-tagline" id="mt">एक दिव्य विवाह सोहळा</p>
+    <div class="divider-gold" id="dv1"></div>
+    <h1 class="names" id="nm">Dipak <span class="ampersand-gold">&</span> Mayuri</h1>
+    <div class="divider-gold" id="dv2"></div>
+    <p class="subtitle" id="sb">Are tying the knot in traditional Marathi elegance</p>
+    <p style="font-family:'Noto Serif Devanagari',serif;font-size:0.85rem;color:rgba(201,147,58,0.6);margin-top:0.5rem;opacity:0" id="sb2">परंपरा आणि प्रेमाचा अनोखा संगम</p>
+    <div class="countdown-wrap" id="cd">
+      <div class="cd-box"><span class="cd-num" id="cd-d">--</span><span class="cd-label">दिवस · Days</span></div>
+      <span class="cd-sep">·</span>
+      <div class="cd-box"><span class="cd-num" id="cd-h">--</span><span class="cd-label">तास · Hours</span></div>
+      <span class="cd-sep">·</span>
+      <div class="cd-box"><span class="cd-num" id="cd-m">--</span><span class="cd-label">मिनिट · Mins</span></div>
+      <span class="cd-sep">·</span>
+      <div class="cd-box"><span class="cd-num" id="cd-s">--</span><span class="cd-label">सेकंद · Secs</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- EVENTS -->
+<section class="section events-bg">
+  <div class="paithani-border"></div>
+  <h2 class="section-title anim">The Auspicious Events</h2>
+  <p class="section-sub anim">विवाह सोहळ्याचे कार्यक्रम</p>
+  <div class="section-line"></div>
+
+  <div class="events-grid">
+    <div class="event-card event-haldi anim">
+      <span class="event-icon">🌼</span>
+      <p class="event-day">Day One · पहिला दिवस</p>
+      <p class="event-name-mr">साखरपुडा आणि हळदी</p>
+      <p class="event-name-en">Engagement & Haldi Ceremony</p>
+      <p class="event-date">8</p>
+      <p class="event-date-sub">May 2026 · मे २०२६</p>
+      <p class="event-detail">शुभ हळदीचा रंग सोनेरी आनंद घेऊन येतो<br><span style="color:rgba(245,237,224,0.4);font-size:0.8rem">The golden hue of haldi brings joyous blessings</span></p>
+    </div>
+    <div class="event-card event-wedding anim">
+      <span class="event-icon">🪔</span>
+      <p class="event-day">Day Two · दुसरा दिवस</p>
+      <p class="event-name-mr">विवाह सोहळा</p>
+      <p class="event-name-en">The Wedding · Vivah Sohala</p>
+      <p class="event-date">9</p>
+      <p class="event-date-sub">May 2026 · मे २०२६</p>
+      <p class="event-detail">दोन जिवांचा पवित्र अग्निसाक्षीने मिलन<br><span style="color:rgba(245,237,224,0.4);font-size:0.8rem">A sacred union blessed by the sacred fire</span></p>
+    </div>
+  </div>
+  <div class="paithani-border" style="margin-top:3rem"></div>
+</section>
+
+<!-- VENUE -->
+<section class="section venue-bg">
+  <h2 class="section-title anim">The Venue</h2>
+  <p class="section-sub anim">समारंभाचे ठिकाण</p>
+  <div class="section-line"></div>
+  <div class="venue-card anim">
+    <h3 class="venue-name">Damodar Palace</h3>
+    <p class="venue-marathi">दामोदर पॅलेस · नाशिक</p>
+    <p class="venue-addr">Talegaon Phata, Mahiravani<br>Trimbak Road, Nashik</p>
+    <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.8!2d73.59!3d19.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU4JzEyLjAiTiA3M8KwMzUnMjQuMCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <a class="dir-btn" href="https://www.google.com/maps/place/Damodhar+Palace+Banquets+%26+Wedding+Lawns/@19.9634539,73.6462082,17z/data=!3m1!4b1!4m6!3m5!1s0x3bddf3681fc542f3:0x7a853bfc1f728acb!8m2!3d19.9634539!4d73.6487831!16s%2Fg%2F11rflf44vr?entry=ttu&g_ep=EgoyMDI2MDQxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">✦ Get Directions · दिशा मिळवा ✦</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="monogram">D & M</span>
+  <div class="marigold">
+    <div class="marigold-line"></div>
+    <svg width="24" height="24" viewBox="0 0 24 24"><g transform="rotate(0,12,12)"><ellipse cx="12" cy="6" rx="2.5" ry="5" fill="#c9933a" opacity="0.7"/></g><g transform="rotate(45,12,12)"><ellipse cx="12" cy="6" rx="2.5" ry="5" fill="#c9933a" opacity="0.6"/></g><g transform="rotate(90,12,12)"><ellipse cx="12" cy="6" rx="2.5" ry="5" fill="#c9933a" opacity="0.7"/></g><g transform="rotate(135,12,12)"><ellipse cx="12" cy="6" rx="2.5" ry="5" fill="#c9933a" opacity="0.6"/></g><circle cx="12" cy="12" r="3" fill="#e8b450"/></svg>
+    <div class="marigold-line r"></div>
+  </div>
+  <p class="footer-msg-mr">तुमच्या आशीर्वादाने आमचा हा खास दिवस अधिक सुंदर होईल</p>
+  <p class="footer-msg-mr" style="font-size:0.95rem;margin-top:0.3rem">प्रेमाने सादर आमंत्रण स्वीकार करावे</p>
+  <p class="footer-msg-en" style="margin-top:1rem">We can't wait to celebrate our most beautiful day with you.<br>Your presence is our greatest blessing.</p>
+  <p class="footer-names">Dipak & Mayuri</p>
+  <p style="font-family:'Noto Serif Devanagari',serif;font-size:0.8rem;color:rgba(201,147,58,0.35);margin-top:0.5rem;letter-spacing:0.1em">९ मे २०२६ · नाशिक</p>
+</footer>
+
+<script>
+// Countdown to May 9, 2026
+function updateCountdown(){
+  const target=new Date('2026-05-09T00:00:00+05:30');
+  const now=new Date();
+  const diff=target-now;
+  if(diff<=0){
+    ['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='0');
+    return;
+  }
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// Hero fade-in sequence
+const heroAnims=[
+  {id:'sd',delay:400},
+  {id:'mt',delay:700},
+  {id:'dv1',delay:900},
+  {id:'nm',delay:1100},
+  {id:'dv2',delay:1400},
+  {id:'sb',delay:1600},
+  {id:'sb2',delay:1800},
+  {id:'cd',delay:2100}
+];
+heroAnims.forEach(({id,delay})=>{
+  setTimeout(()=>{
+    const el=document.getElementById(id);
+    if(el){el.style.animation=`fadeUp 0.9s ease forwards`;el.style.opacity='1'}
+  },delay);
+});
+
+// Scroll animations
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible')}
+  });
+},{threshold:0.15});
+document.querySelectorAll('.anim').forEach((el,i)=>{
+  el.style.transitionDelay=(i%3)*0.12+'s';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
